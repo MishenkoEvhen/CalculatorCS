@@ -1,15 +1,18 @@
-﻿namespace Calculator;
+﻿using System;
+
+namespace Calculator;
 
 public class Action
 {
-    public static void Run()
+    public void Run()
     {
-        float numOne;
-        float numTwo;
+        var numOne = 0f;
+        var numTwo = 0f;
         
         char operation;
 
-        float result = 0;
+        string input = "";
+        var result = 0f;
         while (true)
         {
             Console.WriteLine("Enter number 1: ");
@@ -23,23 +26,23 @@ public class Action
                 result = numOne + numTwo;
             }
 
-            if (operation == '-')
+            else if (operation == '-')
             {
                 result = numOne - numTwo;
             }
 
-            if (operation == '*')
+            else if (operation == '*')
             {
                 result = numOne * numTwo;
             }
 
-            if (operation == '/')
+            else if (operation == '/')
             {
                 result = numOne / numTwo;
             }
             else
             {
-                Console.WriteLine("Error operation");
+                Console.WriteLine("Error");
             }
             Console.WriteLine($"The result is: {result}");
         }
