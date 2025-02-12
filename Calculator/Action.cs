@@ -9,40 +9,49 @@ public class Action
         var numOne = 0f;
         var numTwo = 0f;
         
-        char operation;
+        string operation;
 
         string input = "";
         var result = 0f;
         while (true)
         {
             Console.WriteLine("Enter number 1: ");
-            numOne = float.Parse(Console.ReadLine());
+            numOne = Convert.ToSingle(Console.ReadLine());
             Console.WriteLine("Enter number 2: ");
             numTwo = float.Parse(Console.ReadLine());
             Console.WriteLine("Enter operation(+, -, *, /): ");
-            operation = char.Parse(Console.ReadLine());
-            if (operation == '+')
+            operation = Console.ReadLine();
+            switch (operation)
             {
-                result = numOne + numTwo;
-            }
+                case "+":
+                    result = numOne + numTwo;
+                    break;
+                case "-":
+                    result = numOne - numTwo;
+                    break;
+                case "*":
+                    result = numOne * numTwo;
+                    break;
+                case "/":
+                    result = numOne / numTwo;
+                    try
+                    {
+                        if (numTwo == 0)
+                        {
+                            throw new DivideByZeroException("Нельзя делить на ноль");
+                        }
 
-            else if (operation == '-')
-            {
-                result = numOne - numTwo;
-            }
-
-            else if (operation == '*')
-            {
-                result = numOne * numTwo;
-            }
-
-            else if (operation == '/')
-            {
-                result = numOne / numTwo;
-            }
-            else
-            {
-                Console.WriteLine("Error");
+                        result = numOne / numTwo;
+                        Console.WriteLine($"Результат: {result.ToString("0.00")}");
+                    }
+                    catch (DivideByZeroException e)
+                    {
+                        Console.WriteLine("Ошибка: " + e.Message);
+                    }                    
+                    break;
+                default:
+                    Console.WriteLine("Invalid operation!");
+                    break;
             }
             Console.WriteLine($"The result is: {result}");
         }
