@@ -16,10 +16,17 @@ public class Action
         var result = 0f;
         while (true)
         {
-            Console.WriteLine("Enter number 1: ");
-            numOne = Convert.ToSingle(Console.ReadLine());
-            Console.WriteLine("Enter number 2: ");
-            numTwo = float.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("Enter number 1: ");
+                numOne = float.Parse(Console.ReadLine());
+                Console.WriteLine("Enter number 2: ");
+                numTwo = float.Parse(Console.ReadLine());
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine("Ошибка!" +e.Message);
+            }
             Console.WriteLine("Enter operation(+, -, *, /): ");
             operation = Console.ReadLine();
             switch (operation)
