@@ -51,6 +51,7 @@ public class Action
                     }                    
                     break;
                 default:
+                    Console.WriteLine("Такого оператора нету!");
                     break;
             }
             Console.WriteLine($"The result is: {result}");
