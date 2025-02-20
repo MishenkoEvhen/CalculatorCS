@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace Calculator;
 
@@ -42,7 +43,7 @@ public class Action
                         }
 
                         result = numOne / numTwo;
-                        Console.WriteLine($"Результат: {result.ToString("0.00")}");
+                        
                     }
                     catch (DivideByZeroException e)
                     {
@@ -50,7 +51,6 @@ public class Action
                     }                    
                     break;
                 default:
-                    Console.WriteLine("Invalid operation!");
                     break;
             }
             Console.WriteLine($"The result is: {result}");
