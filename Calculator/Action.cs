@@ -22,45 +22,46 @@ public class Action
                 numOne = float.Parse(Console.ReadLine());
                 Console.WriteLine("Enter number 2: ");
                 numTwo = float.Parse(Console.ReadLine());
+                Console.WriteLine("Enter operation(+, -, *, /): ");
+                operation = Console.ReadLine();
+                switch (operation)
+                {
+                    case "+":
+                        result = numOne + numTwo;
+                        break;
+                    case "-":
+                        result = numOne - numTwo;
+                        break;
+                    case "*":
+                        result = numOne * numTwo;
+                        break;
+                    case "/":
+                        result = numOne / numTwo;
+                        try
+                        {
+                            if (numTwo == 0)
+                            {
+                                throw new DivideByZeroException("Нельзя делить на ноль");
+                            }
+
+                            result = numOne / numTwo;
+                        
+                        }
+                        catch (DivideByZeroException e)
+                        {
+                            Console.WriteLine("Ошибка: " + e.Message);
+                        }                    
+                        break;
+                    default:
+                        Console.WriteLine("Такого оператора нету!");
+                        break;
+                }
             }
             catch(FormatException e)
             {
                 Console.WriteLine("Ошибка!" +e.Message);
             }
-            Console.WriteLine("Enter operation(+, -, *, /): ");
-            operation = Console.ReadLine();
-            switch (operation)
-            {
-                case "+":
-                    result = numOne + numTwo;
-                    break;
-                case "-":
-                    result = numOne - numTwo;
-                    break;
-                case "*":
-                    result = numOne * numTwo;
-                    break;
-                case "/":
-                    result = numOne / numTwo;
-                    try
-                    {
-                        if (numTwo == 0)
-                        {
-                            throw new DivideByZeroException("Нельзя делить на ноль");
-                        }
-
-                        result = numOne / numTwo;
-                        
-                    }
-                    catch (DivideByZeroException e)
-                    {
-                        Console.WriteLine("Ошибка: " + e.Message);
-                    }                    
-                    break;
-                default:
-                    Console.WriteLine("Такого оператора нету!");
-                    break;
-            }
+            
             Console.WriteLine($"The result is: {result}");
         }
     }
