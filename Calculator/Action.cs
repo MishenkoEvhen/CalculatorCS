@@ -8,9 +8,9 @@ public class Action
         var numTwo = 0f;
         
         string operation;
-
-        string input = "";
+        
         var result = 0f;
+        
         while (true)
         {
             try
