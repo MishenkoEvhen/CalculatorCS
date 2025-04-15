@@ -1,7 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-
-namespace Calculator;
+﻿namespace Calculator;
 
 public class Action
 {
@@ -22,7 +19,7 @@ public class Action
                 numOne = float.Parse(Console.ReadLine());
                 Console.WriteLine("Enter number 2: ");
                 numTwo = float.Parse(Console.ReadLine());
-                Console.WriteLine("Enter operation(+, -, *, /): ");
+                Console.WriteLine("Enter operation(+, -, *, /, sin, cos, tan): ");
                 operation = Console.ReadLine();
                 switch (operation)
                 {
@@ -51,6 +48,15 @@ public class Action
                         {
                             Console.WriteLine("Ошибка: " + e.Message);
                         }                    
+                        break;
+                    case "sin":
+                        result = (float)Math.Sin(numOne);
+                        break;
+                    case "cos":
+                        result = (float)Math.Cos(numOne);
+                        break;
+                    case "tan":
+                        result = (float)Math.Tan(numOne);
                         break;
                     default:
                         Console.WriteLine("Такого оператора нету!");
