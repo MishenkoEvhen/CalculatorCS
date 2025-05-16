@@ -1,4 +1,4 @@
-﻿namespace Calculator;
+namespace CalculatorCS;
 
 public class Action
 {
